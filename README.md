@@ -1,1 +1,0 @@
-# terratest-ansible-packer-terraform

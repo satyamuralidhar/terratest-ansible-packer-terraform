@@ -37,7 +37,7 @@ build {
   
   provisioner "ansible" {
     playbook_file = var.playbook
-    roles_path    = "../lamp"
+    roles_path    = "./lamp"
   }
 
   provisioner "shell" {

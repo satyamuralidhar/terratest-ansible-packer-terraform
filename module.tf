@@ -16,7 +16,7 @@ module "packer" {
 
 resource "null_resource" "packer-cmds" {
   provisioner "local-exec" {
-    command = "packer build -var-file='../azure.hcl' packer"
+    command = "pscker build -var-file='../azure.hcl' packer"
   }
   depends_on = [
     azurerm_resource_group.myrsg,
@@ -29,7 +29,7 @@ module "virtualmachine" {
   source             = "./virtualmachine"
   rsg                = azurerm_resource_group.myrsg.name
   location           = var.location
-  vnet_cidr          = var.vnet_cidr
+  vnet_cidr          = [var.vnet_cidr]
   nsg_rules          = var.nsg_rules
   subnet_cidr        = var.subnet_cidr
   configuration_file = var.configuration_file

@@ -9,16 +9,10 @@ client_secret="xxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 
 commands: 
 ==========
-git clone repo 
-cd repo
-terraform init
-terraform workspace new dev
-terraform workspace select dev
-terraform init
-terraform validate
-terraform plan
-terraform apply --auto-approve 
-terraform destroy --auto-approve
+install go 
+go mod init @gihub.com/satyamuralidhar/terratest/lampserver
+go mod tidy
+go test -v 
 
-try after succesfully completion of terraform 
-http://public_ip:80/lamp.php
+
+
