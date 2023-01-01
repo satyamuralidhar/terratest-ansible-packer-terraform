@@ -1,11 +1,12 @@
-//installing go on redhat https://computingforgeeks.com/install-go-golang-on-centos-rhel-linux/
+// installing go on redhat https://computingforgeeks.com/install-go-golang-on-centos-rhel-linux/
 package main
-package terraform 
+package terraform
 
 // Import key modules.
 import (
 	"os"
 	"testing"
+	terraform "github.com/gruntwork-io/terratest/modules/terraform"
 	"github.com/gruntwork-io/terratest/modules/testing"
 )
 
