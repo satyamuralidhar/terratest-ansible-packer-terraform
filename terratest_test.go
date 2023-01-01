@@ -1,3 +1,4 @@
+//installing go on redhat https://computingforgeeks.com/install-go-golang-on-centos-rhel-linux/
 package main
 package terraform 
 
