@@ -10,7 +10,7 @@ client_secret="xxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 commands: 
 ==========
 install go 
-go mod init @gihub.com/satyamuralidhar/terratest/lampserver
+go mod init github.com/satyamuralidhar/terratest/lampserver
 go mod tidy
 go test -v 
 
