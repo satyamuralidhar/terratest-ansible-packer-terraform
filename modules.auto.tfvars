@@ -6,9 +6,9 @@ tags     = { "Account" = "Storage", "Subscription" = "Dev", "Application" = "Pac
 vnet_cidr   = "192.168.0.0/16"
 subnet_cidr = ["192.168.1.0/24"]
 
-private_key        = "id_rsa"
+private_key        = "./id_rsa"
 configuration_file = "configuration.tpl"
-public_key         = "id_rsa.pub"
+public_key         = "./id_rsa.pub"
 
 //Enter Packer image Name
 packerimage = "packerterrform01"
