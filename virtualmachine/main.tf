@@ -1,9 +1,3 @@
-# resource "azurerm_resource_group" "myrsg" {
-#   name     = format("%s-%s",var.rsg,terraform.workspace)
-#   location = var.location
-#   tags     = local.tags
-# }
-
 resource "azurerm_virtual_network" "myvnet" {
   name                = format("%s-%s-%s-%s", var.rsg, var.location, "vnet", terraform.workspace)
   resource_group_name = var.rsg
@@ -34,7 +28,7 @@ resource "azurerm_network_interface" "mynic" {
 
   ip_configuration {
     name                          = "mynicip"
-    subnet_id                     = azurerm_subnet.mysubnet[0].id
+    subnet_id                     = azurerm_subnet.mysubnet.id
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id          = azurerm_public_ip.pip.id
 
@@ -67,7 +61,7 @@ resource "azurerm_network_interface_security_group_association" "nicassociation"
 }
 
 resource "azurerm_subnet_network_security_group_association" "nsgassociation" {
-  subnet_id                 = azurerm_subnet.mysubnet[0].id
+  subnet_id                 = azurerm_subnet.mysubnet.id
   network_security_group_id = azurerm_network_security_group.nsg.id
 }
 
