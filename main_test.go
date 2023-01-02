@@ -84,17 +84,6 @@ func TestTerraform_LampServerInstallation(t *testing.T) {
 	// This will run `terraform init` and `terraform apply` and fail the test if there are any errors
 	terraform.InitAndApply(t, terraformOptions)
 
-	//out, err := terraform.OutputJsonE(t, terraformOptions, "resource_name")
-	expectedVnetAddressSpace := terraform.Output(t, terraformOptions, "vnet_cidr")
-	packerImageName := terraform.Output(t, terraformOptions, "packerimage")
-	resourceGroupName := terraform.Output(t, terraformOptions, "rsg")
-	expectedVmLocation := terraform.Output(t, terraformOptions, "location")
-
-	fmt.Printf("VnetAddressSpace :: %s\n", expectedVnetAddressSpace)
-	fmt.Printf("resourceGroupName :: %s\n", resourceGroupName)
-	fmt.Printf("packerImage :: %s\n", packerImageName)
-	fmt.Printf("Location :: %s\n", expectedVmLocation)
-
 	init, err := terraform.InitE(t, terraformOptions)
 	if err != nil {
 		log.Println(err)
@@ -113,4 +102,14 @@ func TestTerraform_LampServerInstallation(t *testing.T) {
 	}
 	t.Log(apply)
 
+	//out, err := terraform.OutputJsonE(t, terraformOptions, "resource_name")
+	expectedVnetAddressSpace := terraform.Output(t, terraformOptions, "vnet_cidr")
+	packerImageName := terraform.Output(t, terraformOptions, "packerimage")
+	resourceGroupName := terraform.Output(t, terraformOptions, "rsg")
+	expectedVmLocation := terraform.Output(t, terraformOptions, "location")
+
+	fmt.Printf("VnetAddressSpace :: %s\n", expectedVnetAddressSpace)
+	fmt.Printf("resourceGroupName :: %s\n", resourceGroupName)
+	fmt.Printf("packerImage :: %s\n", packerImageName)
+	fmt.Printf("Location :: %s\n", expectedVmLocation)
 }
