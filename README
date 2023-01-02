@@ -1,18 +1,32 @@
 create a hcl file like below values:
 =====================================
-azure.hcl ==> create outside of the git repo
+azure.pkr.hcl ==> create outside of the git repo
 client_id="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 subscription_id="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 tenant_id="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 client_secret="xxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 
 
+Prerequisites:
+=============
+1.go
+2.ansible
+3.azure cli
+4.packer
+5.terraform 
+
 commands: 
 ==========
-install go 
+
+ssh-keygen 
+
+copy pub and private key into root folder
+sudo chmod 400 id_rsa
+sudo chmod 644 id_rsa.pub
+
 go mod init github.com/satyamuralidhar/terratest/lampserver
 go mod tidy
-go test -v 
+go test -v -timeout 60m
 
 
 
