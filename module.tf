@@ -31,7 +31,7 @@ module "virtualmachine" {
   location           = var.location
   vnet_cidr          = [var.vnet_cidr]
   nsg_rules          = var.nsg_rules
-  subnet_cidr        = var.subnet_cidr
+  subnet_cidr        = [var.subnet_cidr]
   configuration_file = var.configuration_file
   private_key        = var.private_key
   packerimage        = var.packerimage
