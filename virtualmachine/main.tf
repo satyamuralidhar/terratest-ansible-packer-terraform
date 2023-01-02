@@ -7,7 +7,7 @@ resource "azurerm_virtual_network" "myvnet" {
 }
 
 resource "azurerm_subnet" "mysubnet" {
-  name                 = format("%s-%s-%s-%s", "subnet", var.location, terraform.workspace, count.index + 1)
+  name                 = format("%s-%s-%s", "subnet", var.location, terraform.workspace)
   virtual_network_name = azurerm_virtual_network.myvnet.name
   resource_group_name  = var.rsg
   address_prefixes     = var.subnet_cidr
