@@ -23,15 +23,6 @@ const (
 	resourceProvisionStatus = "Succeeded"
 )
 
-func timeSleep() {
-
-	// Calling Sleep method
-	time.Sleep(8 * time.Second)
-
-	// Printed after sleep is over
-	fmt.Println("Sleep Over.....")
-}
-
 //set environmnet varibales
 
 func setEnvVars() (map[string]string, error) {
@@ -87,7 +78,7 @@ func TestTerraform_LampServerInstallation(t *testing.T) {
 		// Reconfigure is required if module deployment and go test pipelines are running in one stage
 		Reconfigure: true,
 	})
-	defer terraform.Destroy(t, terraformOptions, timeSleep())
+	defer terraform.Destroy(t, terraformOptions, time.Sleep(8*time.Second))
 
 	// This will run `terraform init` and `terraform apply` and fail the test if there are any errors
 	terraform.InitAndApply(t, terraformOptions)
