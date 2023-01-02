@@ -16,7 +16,7 @@ module "packer" {
 
 resource "null_resource" "packer-cmds" {
   provisioner "local-exec" {
-    command = "packer build -var-file='../azure.pkr.hcl' packer"
+    command = "packer init packer && packer build -var-file='../azure.pkr.hcl' packer"
   }
   depends_on = [
     azurerm_resource_group.myrsg,
