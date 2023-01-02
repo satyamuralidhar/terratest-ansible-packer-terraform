@@ -7,11 +7,13 @@ resource "azurerm_virtual_network" "myvnet" {
 }
 
 resource "azurerm_subnet" "mysubnet" {
-  count                = var.subnet_cidr
   name                 = format("%s-%s-%s-%s", "subnet", var.location, terraform.workspace, count.index + 1)
   virtual_network_name = azurerm_virtual_network.myvnet.name
   resource_group_name  = var.rsg
   address_prefixes     = var.subnet_cidr
+  depends_on = [
+    azurerm_virtual_network.myvnet
+  ]
 }
 
 resource "azurerm_public_ip" "pip" {
